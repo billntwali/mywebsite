@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bill Ntwali",
+  title: "Bill Gate ntwali",
   description:
     "Columbia University undergraduate at the intersection of software engineering, computational biology, and data. Builder, researcher, and community leader.",
-  keywords: ["Bill Ntwali", "Columbia University", "Software Engineer", "Computational Biology"],
-  authors: [{ name: "Bill Ntwali" }],
+  keywords: ["Bill Gate ntwali", "Columbia University", "Software Engineer", "Computational Biology"],
+  authors: [{ name: "Bill Gate ntwali" }],
   openGraph: {
-    title: "Bill Ntwali",
+    title: "Bill Gate ntwali",
     description: "Software engineer, builder, and computational biology student at Columbia University.",
     type: "website",
     locale: "en_US",

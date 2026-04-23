@@ -139,7 +139,7 @@ export default function Hero() {
             lineHeight: 0.9,
           }}
         >
-          Bill Ntwali
+          Bill Gate ntwali
         </motion.h1>
 
         {/* Gold rule */}

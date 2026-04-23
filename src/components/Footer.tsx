@@ -16,7 +16,7 @@ export default function Footer() {
             letterSpacing: "0.04em",
           }}
         >
-          Bill Ntwali
+          Bill Gate ntwali
         </span>
 
         <div className="flex items-center gap-6">
