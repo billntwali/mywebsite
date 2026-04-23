@@ -2,75 +2,39 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
-import {
-  Dna, Globe, BarChart3, Layers, HeartPulse, Terminal, FlaskConical, Cpu
-} from "lucide-react";
 
 const INTERESTS = [
   {
-    icon: Layers,
     title: "Software Engineering",
-    desc: "Clean systems, thoughtful architecture, and the craft of building software that lasts.",
-    color: "text-accent-blue",
-    bg: "bg-accent-blue/10",
-    border: "hover:border-accent-blue/50",
+    desc: "Clean systems, thoughtful architecture, and the craft of building software that lasts and scales with purpose.",
   },
   {
-    icon: Dna,
     title: "Computational Biology",
-    desc: "Algorithms that reveal patterns in living systems — where code meets the biology of life.",
-    color: "text-accent-teal",
-    bg: "bg-accent-teal/10",
-    border: "hover:border-accent-teal/50",
+    desc: "Algorithms that reveal patterns in living systems — where code becomes a lens for understanding biology.",
   },
   {
-    icon: FlaskConical,
     title: "Bioinformatics",
-    desc: "Building tools and pipelines that help researchers navigate genomic and proteomic data.",
-    color: "text-accent-green",
-    bg: "bg-accent-green/10",
-    border: "hover:border-accent-green/50",
+    desc: "Building pipelines and tools that help researchers navigate genomic, proteomic, and expression datasets.",
   },
   {
-    icon: BarChart3,
     title: "Data-Driven Products",
-    desc: "Making data meaningful — through visualization, analysis, and systems that help people decide.",
-    color: "text-accent-purple",
-    bg: "bg-accent-purple/10",
-    border: "hover:border-accent-purple/50",
+    desc: "Making data meaningful through visualization, analysis, and systems that help people make better decisions.",
   },
   {
-    icon: Terminal,
     title: "Developer Tools",
-    desc: "Extensions, CLIs, and platforms that make other builders faster and more capable.",
-    color: "text-accent-blue-light",
-    bg: "bg-accent-blue/10",
-    border: "hover:border-accent-blue/40",
+    desc: "Extensions, CLIs, and platforms that make other builders faster, more capable, and less frustrated.",
   },
   {
-    icon: HeartPulse,
     title: "Healthcare & Nonprofit Tech",
     desc: "Technology at its most meaningful — software that serves people in high-stakes, high-need contexts.",
-    color: "text-accent-teal",
-    bg: "bg-accent-teal/10",
-    border: "hover:border-accent-teal/40",
   },
   {
-    icon: Globe,
     title: "Applied Research Systems",
-    desc: "Software infrastructure that makes research faster, more reproducible, and more shareable.",
-    color: "text-accent-green-light",
-    bg: "bg-accent-green/10",
-    border: "hover:border-accent-green/40",
+    desc: "Software infrastructure that makes research faster, more reproducible, and easier to share and build on.",
   },
   {
-    icon: Cpu,
-    title: "AI & Intelligent Systems",
-    desc: "Curious about how ML and AI can be embedded into useful, real-world products — especially in science.",
-    color: "text-accent-purple",
-    bg: "bg-accent-purple/10",
-    border: "hover:border-accent-purple/40",
+    title: "AI in Science",
+    desc: "How ML and intelligent systems can be embedded into useful, real-world scientific products — especially in biology.",
   },
 ];
 
@@ -79,78 +43,78 @@ export default function Interests() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="relative py-28 overflow-hidden" style={{ background: "linear-gradient(180deg, #080f1e 0%, #050a14 100%)" }}>
-      {/* Atmospheric background */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/tech-overlay-1.png"
-          alt=""
-          fill
-          className="object-cover opacity-[0.07]"
-          quality={70}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/95 via-bg-deep/85 to-bg-deep" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section
+      className="py-28 lg:py-36"
+      style={{ background: "#09091a" }}
+    >
+      <div ref={ref} className="max-w-6xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <span className="section-tag mb-4 inline-flex">Exploring</span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-text-primary mt-4">
+          <span className="label-section block mb-5">Exploring</span>
+          <h2
+            className="heading-section"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 300 }}
+          >
             What keeps me{" "}
-            <span className="gradient-text">curious</span>
+            <em style={{ fontStyle: "italic", color: "#c4883e" }}>curious</em>
           </h2>
-          <p className="text-text-secondary mt-4 max-w-lg mx-auto text-lg">
-            The domains and problems I find myself returning to, reading about, and wanting to build in.
-          </p>
         </motion.div>
 
         {/* Grid */}
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {INTERESTS.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`group glass rounded-2xl p-5 border border-bg-border ${item.border}
-                  transition-all duration-400 hover:-translate-y-1.5 hover:shadow-xl cursor-default`}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px"
+          style={{ background: "#1d2136" }}
+        >
+          {INTERESTS.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="group p-7 transition-all duration-400"
+              style={{
+                background: "#09091a",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "#0e1020";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "#09091a";
+              }}
+            >
+              <p
+                className="text-text-primary mb-3 transition-colors duration-300 group-hover:text-accent-gold"
+                style={{ fontSize: "0.9375rem", fontWeight: 400 }}
               >
-                <div className={`w-11 h-11 rounded-xl ${item.bg} flex items-center justify-center mb-4
-                  group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon size={20} className={item.color} />
-                </div>
-                <h3 className={`font-display font-semibold text-sm mb-2 ${item.color} group-hover:brightness-110 transition-all`}>
-                  {item.title}
-                </h3>
-                <p className="text-text-muted text-xs leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            );
-          })}
+                {item.title}
+              </p>
+              <p
+                className="text-text-muted leading-relaxed"
+                style={{ fontSize: "0.8125rem", fontWeight: 300 }}
+              >
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Currently reading / exploring callout */}
+        {/* Currently exploring callout */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 glass rounded-2xl p-6 border border-accent-blue/20 max-w-2xl mx-auto text-center"
+          transition={{ delay: 0.6, duration: 0.7 }}
+          className="mt-8 px-7 py-5 flex items-start gap-5"
+          style={{ background: "#0e1020", border: "1px solid #1d2136", borderLeft: "2px solid rgba(196,136,62,0.5)", borderRadius: "2px" }}
         >
-          <p className="text-text-muted text-sm font-mono mb-2 uppercase tracking-wider">Currently exploring</p>
-          <p className="text-text-secondary text-base leading-relaxed">
-            The intersection of{" "}
-            <span className="text-accent-blue font-medium">machine learning</span> and{" "}
-            <span className="text-accent-teal font-medium">genomic data</span> — specifically how
-            AI-assisted tools can make bioinformatics workflows faster and more accessible to researchers.
+          <span className="label-section block shrink-0 mt-0.5">Now</span>
+          <p className="text-text-secondary" style={{ fontSize: "0.9rem", fontWeight: 300 }}>
+            Exploring the intersection of{" "}
+            <span style={{ color: "#c4883e" }}>machine learning</span> and{" "}
+            <span style={{ color: "#4e6e9a" }}>genomic data</span> — specifically how AI-assisted tools can make bioinformatics workflows faster and more accessible for researchers.
           </p>
         </motion.div>
       </div>

@@ -2,143 +2,118 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import {
-  Github, ExternalLink, X, ArrowUpRight,
-  Layers, Database, Globe, BarChart2
-} from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 interface Project {
   id: number;
+  num: string;
   title: string;
   tagline: string;
-  description: string;
-  longDescription: string;
-  tech: string[];
   category: string;
-  icon: React.ElementType;
-  image: string;
-  color: string;
-  accentColor: string;
-  borderColor: string;
-  shadowColor: string;
+  description: string;
+  longDescription: string[];
+  highlights: string[];
+  tech: string[];
   github?: string;
   demo?: string;
-  highlights: string[];
   featured?: boolean;
+  accentColor: string;
 }
 
 const PROJECTS: Project[] = [
   {
     id: 1,
+    num: "01",
     title: "LemonTree",
     tagline: "Volunteer Outreach Platform",
-    description: "A full-stack platform built for a nonprofit to modernize their volunteer operations end-to-end.",
-    longDescription: `LemonTree is a production-grade volunteer management platform designed from the ground up for a nonprofit.
-    It handles everything from event creation and publishing to participant registration, guest sign-ups, attendance tracking,
-    automated reminders, and admin dashboards. The goal was to replace fragmented, manual workflows with a cohesive system
-    that event leaders and volunteers actually want to use. Built with a Next.js frontend, FastAPI backend, and a PostgreSQL
-    database via Supabase, the platform supports multiple user roles and real-time data flows.`,
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
-    category: "Full-Stack",
-    icon: Layers,
-    image: "/images/tech-overlay-1.png",
-    color: "from-accent-blue/20 to-accent-teal/10",
-    accentColor: "text-accent-blue",
-    borderColor: "hover:border-accent-blue/60",
-    shadowColor: "hover:shadow-accent-blue/15",
-    github: "https://github.com/billntwali/lemontree",
-    demo: "#",
-    highlights: [
-      "Multi-role access: admin, event leaders, participants, guest sign-ups",
-      "Automated email reminders and attendance workflows",
-      "Real-time event dashboard with participation analytics",
-      "Mobile-responsive design with full PostgreSQL persistence",
+    category: "Full-Stack · Nonprofit",
+    description:
+      "A production-grade volunteer management platform built for a nonprofit to replace fragmented manual workflows. Handles event creation, participant registration, guest sign-ups, attendance tracking, automated reminders, and admin dashboards end-to-end.",
+    longDescription: [
+      "LemonTree is a full-stack platform designed from the ground up for a real nonprofit organization. The goal was to replace a fragmented, manual volunteer management workflow with a cohesive system that event leaders and participants actually want to use.",
+      "The platform supports multiple user roles — administrators, event leaders, registered participants, and guest sign-ups — each with distinct workflows and permissions. Real-time dashboards give organizers visibility into attendance and participation across events.",
+      "Built with a Next.js frontend, a FastAPI backend, and a PostgreSQL database via Supabase, the system handles the full lifecycle of a volunteer event from creation through post-event reporting.",
     ],
+    highlights: [
+      "Multi-role access control: admin, event leaders, participants, guest sign-ups",
+      "Automated email reminders and post-event attendance workflows",
+      "Real-time event dashboards with participation analytics",
+      "Mobile-responsive, production-deployed with full data persistence",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
+    github: "https://github.com/billntwali/lemontree",
     featured: true,
+    accentColor: "#c4883e",
   },
   {
     id: 2,
+    num: "02",
     title: "IdeaFinder",
     tagline: "Intelligent Idea Discovery Tool",
-    description: "An intelligent web app for capturing, organizing, and discovering connections between ideas.",
-    longDescription: `IdeaFinder is a productivity MVP built around the problem of idea capture and rediscovery.
-    Instead of letting valuable thoughts disappear into notes apps or browser tabs, IdeaFinder lets you build a
-    searchable, interconnected library of ideas. The app surfaces relationships between entries, supports tagging
-    and filtering, and provides a clean interface that prioritizes speed of entry. Built as a real product with
-    persistent storage, user sessions, and a fast, intuitive UI.`,
-    tech: ["React", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL"],
-    category: "Product",
-    icon: Globe,
-    image: "/images/tech-overlay-2.png",
-    color: "from-accent-teal/20 to-accent-blue/10",
-    accentColor: "text-accent-teal",
-    borderColor: "hover:border-accent-teal/60",
-    shadowColor: "hover:shadow-accent-teal/15",
-    github: "https://github.com/billntwali/ideafinder",
-    highlights: [
-      "Fast capture with keyboard-first design philosophy",
-      "Smart tag system with cross-idea relationship mapping",
-      "Full-text search across your personal idea library",
-      "Clean, distraction-free writing and review interface",
+    category: "Product · Web App",
+    description:
+      "A productivity MVP built around the problem of idea capture and rediscovery. Build a searchable, interconnected library of ideas with smart tagging, relationship mapping, and a fast capture-first interface.",
+    longDescription: [
+      "IdeaFinder addresses a frustratingly common problem: capturing valuable thoughts in a way that makes them findable and usable later. Instead of letting ideas disappear into note apps or forgotten tabs, IdeaFinder builds a personal idea library with real structure.",
+      "The app surfaces connections between entries, supports custom tagging and filtering, and provides a distraction-free interface designed around speed of entry. Full-text search, cross-idea relationships, and a clean review flow make it genuinely useful, not just another capture tool.",
     ],
+    highlights: [
+      "Keyboard-first capture interface with zero friction",
+      "Cross-idea relationship mapping and tag-based organization",
+      "Full-text search across your personal idea library",
+      "Clean writing and review interface, minimal and fast",
+    ],
+    tech: ["React", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL"],
+    github: "https://github.com/billntwali/ideafinder",
+    accentColor: "#4e6e9a",
   },
   {
     id: 3,
+    num: "03",
     title: "Link Saver",
     tagline: "Chrome Extension for Web Curation",
-    description: "A productivity Chrome extension for saving, organizing, and rediscovering web content with zero friction.",
-    longDescription: `Link Saver is a Chrome extension built around a frustratingly common problem: saving interesting
-    web content in a way you'll actually be able to find and use later. The extension provides one-click saving with
-    automatic metadata extraction, a category system for organization, and a clean pop-up UI for reviewing and
-    searching saved links. Everything syncs to local storage with optional export, so your content library is
-    always fast and private.`,
-    tech: ["JavaScript", "Chrome Extensions API", "CSS", "Local Storage"],
-    category: "Developer Tool",
-    icon: Globe,
-    image: "/images/hero-day.png",
-    color: "from-accent-green/20 to-accent-teal/10",
-    accentColor: "text-accent-green",
-    borderColor: "hover:border-accent-green/60",
-    shadowColor: "hover:shadow-accent-green/15",
-    github: "https://github.com/billntwali/link-saver",
-    highlights: [
-      "One-click save with automatic title, URL, and description extraction",
-      "Custom category tagging and search by keyword or tag",
-      "Clean pop-up UI with instant access to your saved library",
-      "Local-first: fast, private, and zero dependency on external services",
+    category: "Developer Tool · Extension",
+    description:
+      "A Chrome extension for saving, organizing, and rediscovering web content with zero friction. One-click saves, automatic metadata extraction, custom categorization, and a clean pop-up UI for instant access to your library.",
+    longDescription: [
+      "Link Saver was built around a simple but real frustration: saving interesting web content in a way you'll actually find and use later. Existing bookmark systems are clunky and disorganized — this extension makes it genuinely fast and private.",
+      "One-click saving with automatic title, URL, and description extraction. Custom category tagging, keyword search, and a clean pop-up UI that opens instantly. Everything stores locally — fast, private, and zero dependency on external services.",
     ],
+    highlights: [
+      "One-click save with automatic metadata extraction",
+      "Custom category tagging and keyword search",
+      "Clean pop-up UI with instant local access",
+      "Local-first: private, fast, no external dependencies",
+    ],
+    tech: ["JavaScript", "Chrome Extensions API", "CSS", "Local Storage"],
+    github: "https://github.com/billntwali/link-saver",
+    accentColor: "#3d6649",
   },
   {
     id: 4,
+    num: "04",
     title: "BioData Explorer",
     tagline: "Computational Biology Analysis Tool",
-    description: "A data analysis and visualization toolkit for exploring biological datasets and genomic patterns.",
-    longDescription: `BioData Explorer is a research-oriented analysis project that applies computational methods
-    to biological datasets. It combines data cleaning, statistical analysis, and interactive visualization to
-    help surface meaningful patterns in complex biological data. The project reflects my interest in the overlap
-    between software engineering and scientific research — building tools that help researchers ask better
-    questions and find answers faster.`,
-    tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Jupyter", "R"],
-    category: "Research",
-    icon: BarChart2,
-    image: "/images/hero-night.png",
-    color: "from-accent-purple/20 to-accent-blue/10",
-    accentColor: "text-accent-purple",
-    borderColor: "hover:border-accent-purple/60",
-    shadowColor: "hover:shadow-accent-purple/15",
-    github: "https://github.com/billntwali/biodata-explorer",
+    category: "Research · Data Science",
+    description:
+      "A data analysis and visualization toolkit for exploring biological datasets and genomic patterns. Applies computational methods to surface meaningful signals in complex biological data.",
+    longDescription: [
+      "BioData Explorer applies computational methods to biological datasets, combining data cleaning, statistical analysis, and interactive visualization to help surface meaningful patterns in complex data.",
+      "The project reflects my interest in the overlap between software engineering and scientific research — building tools that help researchers ask better questions and find answers faster. Reproducible workflows with Jupyter notebooks make results shareable and verifiable.",
+    ],
     highlights: [
       "Automated data cleaning and normalization pipelines",
       "Statistical pattern analysis across biological datasets",
       "Interactive visualizations for genomic and expression data",
-      "Reproducible research workflows with Jupyter notebooks",
+      "Reproducible research workflows via Jupyter notebooks",
     ],
+    tech: ["Python", "Pandas", "NumPy", "Matplotlib", "R", "Jupyter"],
+    github: "https://github.com/billntwali/biodata-explorer",
+    accentColor: "#6b5ea8",
   },
 ];
 
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const Icon = project.icon;
+function Modal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -147,91 +122,106 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div
+        className="absolute inset-0"
+        style={{ background: "rgba(6,8,16,0.88)", backdropFilter: "blur(12px)" }}
+      />
       <motion.div
-        initial={{ opacity: 0, scale: 0.92, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.92, y: 20 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="relative w-full max-w-2xl glass rounded-3xl border border-bg-border overflow-hidden shadow-2xl"
+        initial={{ opacity: 0, y: 20, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.97 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full max-w-xl overflow-hidden"
+        style={{
+          background: "#0e1020",
+          border: "1px solid #1d2136",
+          borderRadius: "3px",
+          maxHeight: "88vh",
+          overflowY: "auto",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header image */}
-        <div className="relative h-52 overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover opacity-50"
-          />
-          <div className={`absolute inset-0 bg-gradient-to-b ${project.color} opacity-80`} />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-surface to-transparent" />
-          <div className="absolute bottom-6 left-6 flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-xl ${project.accentColor.replace("text-", "bg-")}/20 flex items-center justify-center`}>
-              <Icon size={20} className={project.accentColor} />
-            </div>
+        {/* Header */}
+        <div className="px-8 pt-8 pb-6" style={{ borderBottom: "1px solid #1d2136" }}>
+          <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="font-display font-bold text-xl text-white">{project.title}</h3>
-              <p className={`text-sm ${project.accentColor}`}>{project.tagline}</p>
+              <span className="label-section block mb-2">{project.category}</span>
+              <h3
+                className="heading-section"
+                style={{ fontSize: "2rem", fontWeight: 400, color: project.accentColor }}
+              >
+                {project.title}
+              </h3>
+              <p className="text-text-secondary text-sm mt-1" style={{ fontStyle: "italic" }}>
+                {project.tagline}
+              </p>
             </div>
+            <button
+              onClick={onClose}
+              className="text-text-muted hover:text-text-primary transition-colors mt-1"
+            >
+              <X size={16} />
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-colors"
-          >
-            <X size={16} />
-          </button>
         </div>
 
-        {/* Content */}
-        <div className="p-6 space-y-6">
-          <p className="text-text-secondary leading-relaxed text-sm">{project.longDescription}</p>
+        {/* Body */}
+        <div className="px-8 py-7 space-y-7">
+          {/* Description */}
+          <div className="space-y-4">
+            {project.longDescription.map((para, i) => (
+              <p key={i} className="text-text-secondary leading-relaxed"
+                style={{ fontSize: "0.9rem", fontWeight: 300 }}>
+                {para}
+              </p>
+            ))}
+          </div>
 
           {/* Highlights */}
           <div>
-            <h4 className="text-text-primary font-semibold text-sm mb-3">Key Features</h4>
+            <p className="label-section mb-4 block">Key Features</p>
             <ul className="space-y-2">
               {project.highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2 text-sm text-text-secondary">
-                  <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${project.accentColor.replace("text-", "bg-")} shrink-0`} />
+                <li key={h} className="flex items-start gap-3 text-text-secondary"
+                  style={{ fontSize: "0.875rem", fontWeight: 300 }}>
+                  <span
+                    style={{
+                      width: "4px", height: "4px", borderRadius: "50%", flexShrink: 0,
+                      background: project.accentColor, marginTop: "8px",
+                    }}
+                  />
                   {h}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Tech stack */}
+          {/* Tech */}
           <div>
-            <h4 className="text-text-primary font-semibold text-sm mb-3">Tech Stack</h4>
+            <p className="label-section mb-4 block">Stack</p>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t) => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span
+                  key={t}
+                  className="label-mono px-2.5 py-1.5"
+                  style={{ background: "#151828", border: "1px solid #1d2136", borderRadius: "2px" }}
+                >
+                  {t}
+                </span>
               ))}
             </div>
           </div>
 
           {/* Links */}
-          <div className="flex gap-3 pt-2">
+          <div className="flex gap-6 pt-2">
             {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-sm px-4 py-2 flex-1 justify-center"
-              >
-                <Github size={15} />
-                GitHub
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                GitHub <ArrowUpRight size={13} />
               </a>
             )}
-            {project.demo && project.demo !== "#" && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm px-4 py-2 flex-1 justify-center"
-              >
-                <ExternalLink size={15} />
-                Live Demo
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                Live Demo <ArrowUpRight size={13} />
               </a>
             )}
           </div>
@@ -248,150 +238,151 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="relative py-28 bg-bg-dark overflow-hidden">
-        {/* Background accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full opacity-[0.03] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, #3b82f6, transparent 70%)" }}
-        />
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section
+        id="projects"
+        className="py-28 lg:py-36"
+        style={{ background: "#0e1020" }}
+      >
+        <div className="max-w-6xl mx-auto px-6 lg:px-10">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
+            transition={{ duration: 0.7 }}
+            className="mb-16 flex items-end justify-between flex-wrap gap-6"
           >
-            <span className="section-tag mb-4 inline-flex">Projects</span>
-            <div className="flex items-end justify-between flex-wrap gap-4 mt-4">
-              <h2 className="font-display font-bold text-4xl sm:text-5xl text-text-primary max-w-lg">
-                Things I&apos;ve{" "}
-                <span className="gradient-text">built</span>
-              </h2>
-              <a
-                href="https://github.com/billntwali"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-text-secondary hover:text-accent-blue transition-colors group"
+            <div>
+              <span className="label-section block mb-5">Projects</span>
+              <h2
+                className="heading-section"
+                style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 300 }}
               >
-                View all on GitHub
-                <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+                Things I&apos;ve{" "}
+                <em style={{ fontStyle: "italic", color: "#c4883e" }}>built</em>
+              </h2>
             </div>
+            <a
+              href="https://github.com/billntwali"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-arrow"
+            >
+              All on GitHub <ArrowUpRight size={13} />
+            </a>
           </motion.div>
 
-          {/* Project grid */}
-          <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {PROJECTS.map((project, i) => {
-              const Icon = project.icon;
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.55, delay: i * 0.1 }}
+          {/* Project list */}
+          <div ref={ref} className="space-y-4">
+            {PROJECTS.map((project, i) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <button
                   onClick={() => setSelected(project)}
-                  className={`group relative glass rounded-3xl overflow-hidden border border-bg-border
-                    ${project.borderColor} transition-all duration-500
-                    hover:-translate-y-2 hover:shadow-2xl ${project.shadowColor}
-                    cursor-pointer
-                    ${project.featured ? "lg:col-span-2" : ""}`}
+                  className="w-full text-left group"
                 >
-                  {/* Featured badge */}
-                  {project.featured && (
-                    <div className="absolute top-5 right-5 z-10">
-                      <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-blue/20 text-accent-blue border border-accent-blue/30">
-                        Featured
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Image */}
-                  <div className={`relative ${project.featured ? "h-64 lg:h-72" : "h-48"} overflow-hidden`}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-60`} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-surface via-bg-surface/50 to-transparent" />
-
-                    {/* Category badge */}
-                    <div className="absolute top-5 left-5">
-                      <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-black/40 backdrop-blur-sm text-text-secondary border border-white/10">
-                        {project.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-7">
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className={`w-10 h-10 rounded-xl bg-bg-elevated flex items-center justify-center shrink-0 border border-bg-border group-hover:border-current transition-colors ${project.accentColor}`}>
-                        <Icon size={18} />
-                      </div>
-                      <div>
-                        <h3 className={`font-display font-bold text-xl text-text-primary group-hover:${project.accentColor} transition-colors`}>
+                  <div
+                    className="card-dark transition-all duration-400 p-7 lg:p-9"
+                    style={{
+                      borderLeftWidth: "2px",
+                      borderLeftColor: project.featured ? project.accentColor : "#1d2136",
+                    }}
+                  >
+                    <div className="flex items-start justify-between gap-6 flex-wrap">
+                      {/* Left: project info */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-4 mb-3">
+                          <span className="label-mono">{project.num}</span>
+                          <span className="label-mono">{project.category}</span>
+                          {project.featured && (
+                            <span
+                              className="label-section"
+                              style={{ color: project.accentColor }}
+                            >
+                              Featured
+                            </span>
+                          )}
+                        </div>
+                        <h3
+                          className="heading-section mb-1 transition-colors duration-300 group-hover:text-accent-gold"
+                          style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 400 }}
+                        >
                           {project.title}
                         </h3>
-                        <p className={`text-sm ${project.accentColor} font-medium`}>{project.tagline}</p>
+                        <p
+                          className="text-text-secondary mb-4"
+                          style={{ fontSize: "0.9375rem", fontStyle: "italic", fontWeight: 300 }}
+                        >
+                          {project.tagline}
+                        </p>
+                        <p
+                          className="text-text-secondary leading-relaxed mb-5"
+                          style={{ fontSize: "0.875rem", fontWeight: 300, maxWidth: "52ch" }}
+                        >
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.map((t) => (
+                            <span
+                              key={t}
+                              className="label-mono px-2.5 py-1"
+                              style={{
+                                background: "#151828",
+                                border: "1px solid #1d2136",
+                                borderRadius: "2px",
+                              }}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Right: action */}
+                      <div className="flex items-center gap-5 shrink-0 self-start pt-1">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="link-arrow"
+                          >
+                            GitHub
+                          </a>
+                        )}
+                        <span
+                          className="link-arrow transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          style={{ color: "#c4883e" }}
+                        >
+                          Details <ArrowUpRight size={13} style={{ display: "inline" }} />
+                        </span>
                       </div>
                     </div>
-
-                    <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                      {project.description}
-                    </p>
-
-                    {/* Tech tags */}
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.tech.slice(0, project.featured ? 6 : 4).map((t) => (
-                        <span key={t} className="skill-tag">{t}</span>
-                      ))}
-                    </div>
-
-                    {/* Actions */}
-                    <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
-                        >
-                          <Github size={14} />
-                          Code
-                        </a>
-                      )}
-                      {project.demo && project.demo !== "#" && (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-xs text-text-muted hover:text-accent-blue transition-colors"
-                        >
-                          <ExternalLink size={14} />
-                          Demo
-                        </a>
-                      )}
-                      <span className="ml-auto text-xs text-text-muted group-hover:text-text-secondary transition-colors flex items-center gap-1">
-                        Details
-                        <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </span>
-                    </div>
                   </div>
-                </motion.div>
-              );
-            })}
+                </button>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Screenshot note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="mt-8 label-mono text-center"
+            style={{ color: "#2a3040" }}
+          >
+            Project screenshots coming soon
+          </motion.p>
         </div>
       </section>
 
-      {/* Modal */}
       <AnimatePresence>
-        {selected && (
-          <ProjectModal project={selected} onClose={() => setSelected(null)} />
-        )}
+        {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
     </>
   );

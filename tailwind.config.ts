@@ -9,76 +9,69 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Sampled from hero-night.png: dark twilight Rwandan lake
         bg: {
-          deep: "#050a14",
-          dark: "#0a1020",
-          surface: "#0d1422",
-          elevated: "#111b30",
-          border: "#1a2840",
+          void: "#060810",      // absolute dark — deep sky
+          base: "#09091a",      // main background
+          surface: "#0e1020",   // card surfaces
+          elevated: "#151828",  // elevated elements
+          border: "#1d2136",    // borders
+          subtle: "#131625",    // subtle dividers
         },
         accent: {
-          blue: "#3b82f6",
-          "blue-light": "#60a5fa",
-          teal: "#06b6d4",
-          "teal-light": "#22d3ee",
-          green: "#10b981",
-          "green-light": "#34d399",
-          purple: "#8b5cf6",
+          gold: "#c4883e",        // amber from village lights in image
+          "gold-light": "#daa055", // lighter warm
+          "gold-dim": "#7a5828",   // dimmer amber
+          slate: "#4e6e9a",        // mountain blue-gray from the water
+          green: "#3d6649",        // forest green from the hillside
         },
         text: {
-          primary: "#f0f4ff",
-          secondary: "#94a3b8",
-          muted: "#4b5e78",
+          primary: "#ece5d8",    // warm cream — reads well on dark night bg
+          secondary: "#8090a6",  // muted slate
+          muted: "#404d62",      // very muted
+          dim: "#252d3e",        // barely visible
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "var(--font-inter)", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        display: ["var(--font-cormorant)", "Georgia", "serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-dm-mono)", "monospace"],
+      },
+      fontSize: {
+        "10xl": ["10rem", { lineHeight: "0.9" }],
+        "9xl": ["8rem", { lineHeight: "0.92" }],
+        "8xl": ["6rem", { lineHeight: "0.94" }],
+      },
+      letterSpacing: {
+        widest: "0.25em",
+        "ultra-wide": "0.35em",
       },
       animation: {
-        "fade-up": "fadeUp 0.6s ease forwards",
-        "fade-in": "fadeIn 0.6s ease forwards",
-        float: "float 6s ease-in-out infinite",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "spin-slow": "spin 8s linear infinite",
-        shimmer: "shimmer 2.5s linear infinite",
-        gradient: "gradientShift 8s ease infinite",
-        typewriter: "typewriter 0.05s steps(1) forwards",
-        "border-spin": "borderSpin 4s linear infinite",
+        "fade-up": "fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards",
+        "fade-in": "fadeIn 1s ease forwards",
+        "grain": "grain 8s steps(10) infinite",
       },
       keyframes: {
         fadeUp: {
-          from: { opacity: "0", transform: "translateY(24px)" },
+          from: { opacity: "0", transform: "translateY(28px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
+        grain: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%": { transform: "translate(-2%, -3%)" },
+          "20%": { transform: "translate(3%, 1%)" },
+          "30%": { transform: "translate(-1%, 4%)" },
+          "40%": { transform: "translate(4%, -2%)" },
+          "50%": { transform: "translate(-3%, 3%)" },
+          "60%": { transform: "translate(2%, -4%)" },
+          "70%": { transform: "translate(-4%, 1%)" },
+          "80%": { transform: "translate(1%, -2%)" },
+          "90%": { transform: "translate(3%, 4%)" },
         },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        gradientShift: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        borderSpin: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-      },
-      backgroundSize: {
-        "200%": "200%",
-        "400%": "400%",
-      },
-      backdropBlur: {
-        xs: "2px",
       },
     },
   },

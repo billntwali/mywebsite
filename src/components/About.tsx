@@ -3,212 +3,211 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Hammer, Microscope, BarChart3, Heart, ChevronRight } from "lucide-react";
 
-const IDENTITY_CARDS = [
-  {
-    icon: Hammer,
-    title: "Builder",
-    desc: "I think in systems and ship real products — from nonprofit platforms to browser extensions. If it solves a problem, I want to build it.",
-    color: "blue",
-    border: "hover:border-accent-blue/50",
-    iconBg: "bg-accent-blue/10",
-    iconColor: "text-accent-blue",
-  },
-  {
-    icon: Microscope,
-    title: "Research-Minded",
-    desc: "Computational biology sits at an extraordinary intersection of data, biology, and computing. I'm drawn to scientific problems where code becomes discovery.",
-    color: "teal",
-    border: "hover:border-accent-teal/50",
-    iconBg: "bg-accent-teal/10",
-    iconColor: "text-accent-teal",
-  },
-  {
-    icon: BarChart3,
-    title: "Data-Focused",
-    desc: "Good decisions come from good data. I love turning raw information into insight — whether through analysis, visualization, or building the pipelines that make it possible.",
-    color: "green",
-    border: "hover:border-accent-green/50",
-    iconBg: "bg-accent-green/10",
-    iconColor: "text-accent-green",
-  },
-  {
-    icon: Heart,
-    title: "Community-Driven",
-    desc: "As a Resident Adviser and mentor, I understand that technical work doesn't happen in isolation. People, trust, and support structures matter just as much as code.",
-    color: "purple",
-    border: "hover:border-accent-purple/50",
-    iconBg: "bg-accent-purple/10",
-    iconColor: "text-accent-purple",
-  },
-];
+const TABS = ["Background", "Interests", "Beyond Tech"] as const;
+type Tab = typeof TABS[number];
 
-const TABS = ["Background", "Interests", "Beyond Tech"];
-
-const TAB_CONTENT: Record<string, React.ReactNode> = {
-  Background: (
-    <div className="space-y-4 text-text-secondary leading-relaxed">
-      <p>
-        I&apos;m a Columbia University undergraduate studying at the intersection of biology and computing —
-        a space where algorithms illuminate biological systems and data reshapes how we understand living things.
-        My academic path has been shaped by a genuine curiosity: not just{" "}
-        <em className="text-text-primary">what</em> the tools do, but{" "}
-        <em className="text-text-primary">why</em> they work and how they can be made more useful.
-      </p>
-      <p>
-        That curiosity extends beyond coursework. I&apos;ve built full-stack applications, dug into data pipelines,
-        and shipped tools that real people use. I believe in learning by building, and building toward things
-        that actually matter.
-      </p>
-    </div>
-  ),
-  Interests: (
-    <div className="space-y-4 text-text-secondary leading-relaxed">
-      <p>
-        I&apos;m especially excited by problems where software meets the real world in high-stakes,
-        high-impact ways — bioinformatics pipelines, healthcare data tools, nonprofit infrastructure,
-        and developer tooling that helps other builders move faster.
-      </p>
-      <p>
-        I&apos;m also interested in the craft of software itself: clean architecture, thoughtful product design,
-        and the kind of engineering that makes systems feel inevitable once you use them.
-      </p>
-    </div>
-  ),
-  "Beyond Tech": (
-    <div className="space-y-4 text-text-secondary leading-relaxed">
-      <p>
-        Outside of code and research, I serve as a Resident Adviser at Columbia — a role that&apos;s taught me
-        more about leadership, empathy, and crisis navigation than any class or project ever could.
-        Supporting a community of students is its own kind of systems work.
-      </p>
-      <p>
-        I care deeply about mentorship, academic access, and building spaces where people feel supported
-        to take risks, ask hard questions, and grow into their potential.
-      </p>
-    </div>
-  ),
+const TAB_CONTENT: Record<Tab, { body: string[] }> = {
+  Background: {
+    body: [
+      "I'm a Columbia University undergraduate studying at the intersection of biology and computing — a space where algorithms illuminate biological systems and data reshapes how we understand living things. My path has been shaped by a genuine curiosity: not just what the tools do, but why they work, and how they can become more useful.",
+      "That curiosity extends beyond coursework. I've built full-stack applications, dug into data pipelines, and shipped tools that real people use. I learn by building, and I build toward things that actually matter.",
+    ],
+  },
+  Interests: {
+    body: [
+      "I'm especially drawn to problems where software meets the real world in high-stakes ways — bioinformatics pipelines, healthcare data tools, nonprofit infrastructure, and developer tooling that helps other builders move faster.",
+      "I'm also interested in the craft of software itself: clean architecture, thoughtful product design, and the kind of engineering that makes systems feel inevitable once you encounter them.",
+    ],
+  },
+  "Beyond Tech": {
+    body: [
+      "Outside of code and research, I serve as a Resident Adviser at Columbia — a role that has taught me more about leadership, empathy, and navigating hard conversations than any class ever could. Supporting a community of students is its own kind of systems work.",
+      "I care deeply about mentorship, academic access, and building environments where people feel supported to take risks, ask hard questions, and grow into their potential.",
+    ],
+  },
 };
+
+const IDENTITY = [
+  { label: "Builder", desc: "I think in systems and ship real products. If it solves a real problem, I want to build it." },
+  { label: "Research-Minded", desc: "Computational biology sits at an extraordinary intersection of data and life. I'm drawn to scientific problems where code becomes discovery." },
+  { label: "Data-Focused", desc: "Good decisions come from good data. I love turning raw information into insight and building the pipelines that make it possible." },
+  { label: "Community-Driven", desc: "As an RA and mentor, I know that technical work doesn't happen in isolation. People and trust matter as much as code." },
+];
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [activeTab, setActiveTab] = useState("Background");
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [tab, setTab] = useState<Tab>("Background");
 
   return (
-    <section id="about" className="relative py-28 overflow-hidden" style={{ background: "linear-gradient(180deg, #080f1e 0%, #050a14 100%)" }}>
-      {/* Background image */}
-      <div className="absolute inset-0 z-0">
+    <section
+      id="about"
+      className="relative py-28 lg:py-36 overflow-hidden"
+      style={{ background: "#09091a" }}
+    >
+      {/* Background: hills image, very faded */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src="/images/hills.png"
           alt=""
           fill
-          className="object-cover opacity-10"
-          quality={80}
+          className="object-cover"
+          quality={75}
+          style={{ opacity: 0.06, objectPosition: "center 60%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg-deep via-bg-deep/90 to-bg-deep" />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, #09091a 0%, rgba(9,9,26,0.88) 50%, #09091a 100%)",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section header */}
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
+        {/* Section label */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <span className="section-tag mb-4 inline-flex">About Me</span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-text-primary mt-4 max-w-xl">
-            The person behind the{" "}
-            <span className="gradient-text">builds</span>
+          <span className="label-section block mb-5">About</span>
+          <h2
+            className="heading-section"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 300 }}
+          >
+            The person behind
+            <br />
+            <em style={{ fontStyle: "italic", color: "#c4883e" }}>the builds</em>
           </h2>
         </motion.div>
 
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: identity cards */}
-          <div className="space-y-4">
-            {IDENTITY_CARDS.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.55, delay: i * 0.1 }}
-                  className={`group glass rounded-2xl p-5 border border-bg-border ${card.border}
-                    transition-all duration-400 hover:shadow-xl cursor-default`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className={`mt-0.5 w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
-                      <Icon size={18} className={card.iconColor} />
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+          {/* Left — identity cards */}
+          <div className="space-y-5">
+            {IDENTITY.map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.1 + i * 0.09 }}
+                className="flex items-start gap-5"
+              >
+                <div
+                  style={{
+                    width: "1px",
+                    flexShrink: 0,
+                    alignSelf: "stretch",
+                    background: "linear-gradient(to bottom, #c4883e, transparent)",
+                    marginTop: "4px",
+                  }}
+                />
+                <div>
+                  <p className="text-text-primary text-sm font-medium mb-1.5">{item.label}</p>
+                  <p className="text-text-secondary leading-relaxed" style={{ fontSize: "0.875rem", fontWeight: 300 }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Quick facts */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="pt-8"
+            >
+              <div
+                className="p-6"
+                style={{ background: "#0e1020", border: "1px solid #1d2136", borderRadius: "2px" }}
+              >
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                  {[
+                    ["Location", "New York City"],
+                    ["Background", "Rwanda → New York"],
+                    ["Focus", "CS + Computational Biology"],
+                    ["Available", "Research & internships"],
+                  ].map(([k, v]) => (
+                    <div key={k}>
+                      <p className="label-mono mb-0.5" style={{ fontSize: "0.6rem" }}>{k}</p>
+                      <p className="text-text-primary" style={{ fontSize: "0.8125rem" }}>{v}</p>
                     </div>
-                    <div>
-                      <h3 className={`font-display font-semibold text-sm mb-1.5 ${card.iconColor}`}>
-                        {card.title}
-                      </h3>
-                      <p className="text-text-secondary text-sm leading-relaxed">{card.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right: tabbed narrative */}
+          {/* Right — tabbed narrative */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.2 }}
-            className="space-y-6"
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Tab nav */}
-            <div className="flex gap-1 p-1 rounded-xl bg-bg-elevated border border-bg-border w-fit">
-              {TABS.map((tab) => (
+            {/* Tab bar */}
+            <div
+              className="flex gap-0 mb-8 border-b"
+              style={{ borderColor: "#1d2136" }}
+            >
+              {TABS.map((t) => (
                 <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-250 ${
-                    activeTab === tab
-                      ? "bg-accent-blue text-white shadow-lg shadow-accent-blue/25"
-                      : "text-text-secondary hover:text-text-primary"
-                  }`}
+                  key={t}
+                  onClick={() => setTab(t)}
+                  className="pb-3 mr-6 transition-all duration-250"
+                  style={{
+                    fontSize: "0.8125rem",
+                    fontWeight: 400,
+                    letterSpacing: "0.02em",
+                    color: tab === t ? "#ece5d8" : "#404d62",
+                    borderBottom: tab === t ? "1px solid #c4883e" : "1px solid transparent",
+                    marginBottom: "-1px",
+                    background: "none",
+                    cursor: "pointer",
+                  }}
                 >
-                  {tab}
+                  {t}
                 </button>
               ))}
             </div>
 
-            {/* Tab content */}
+            {/* Content */}
             <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              key={tab}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="glass rounded-2xl p-8 border border-bg-border min-h-56"
+              transition={{ duration: 0.4 }}
+              className="space-y-5"
             >
-              {TAB_CONTENT[activeTab]}
+              {TAB_CONTENT[tab].body.map((para, i) => (
+                <p
+                  key={i}
+                  className="text-text-secondary leading-relaxed"
+                  style={{ fontSize: "0.9375rem", fontWeight: 300 }}
+                >
+                  {para}
+                </p>
+              ))}
             </motion.div>
 
-            {/* Mini highlights */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Computer Science & Biology", sub: "Core focus areas" },
-                { label: "New York City", sub: "Columbia Morningside Heights" },
-                { label: "Open to Opportunities", sub: "Research, internships, collabs" },
-                { label: "Rwanda → New York", sub: "International perspective" },
-              ].map((item) => (
-                <div key={item.label} className="glass rounded-xl p-4 border border-bg-border group hover:border-accent-blue/30 transition-colors">
-                  <div className="flex items-start gap-2">
-                    <ChevronRight size={14} className="text-accent-blue mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-text-primary text-xs font-semibold">{item.label}</p>
-                      <p className="text-text-muted text-xs mt-0.5">{item.sub}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Bottom CTA */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="mt-12"
+            >
+              <button
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="link-arrow"
+              >
+                Let's connect
+                <span style={{ color: "#c4883e" }}>→</span>
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
