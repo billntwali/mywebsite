@@ -16,13 +16,13 @@ export default function Footer() {
             letterSpacing: "0.04em",
           }}
         >
-          Bill Gate ntwali
+          Bill Gate Ntwali
         </span>
 
         <div className="flex items-center gap-6">
           {[
-            { label: "GitHub", href: "https://github.com/billntwali" },
-            { label: "LinkedIn", href: "https://linkedin.com/in/billntwali" },
+            { label: "GitHub", href: "https://github.com/billNtwali" },
+            { label: "LinkedIn", href: "https://linkedin.com/in/billNtwali" },
             { label: "Email", href: "mailto:bn2394@columbia.edu" },
           ].map((l) => (
             <a

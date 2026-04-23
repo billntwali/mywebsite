@@ -14,14 +14,14 @@ const LINKS = [
   },
   {
     label: "GitHub",
-    value: "github.com/billntwali",
-    href: "https://github.com/billntwali",
+    value: "github.com/billNtwali",
+    href: "https://github.com/billNtwali",
     external: true,
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/billntwali",
-    href: "https://linkedin.com/in/billntwali",
+    value: "linkedin.com/in/billNtwali",
+    href: "https://linkedin.com/in/billNtwali",
     external: true,
   },
   {

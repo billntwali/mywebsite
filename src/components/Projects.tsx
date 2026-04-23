@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
       "Mobile-responsive, production-deployed with full data persistence",
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
-    github: "https://github.com/billntwali/lemontree",
+    github: "https://github.com/billNtwali/lemontree",
     featured: true,
     accentColor: "#c4883e",
   },
@@ -64,7 +64,7 @@ const PROJECTS: Project[] = [
       "Clean writing and review interface, minimal and fast",
     ],
     tech: ["React", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL"],
-    github: "https://github.com/billntwali/ideafinder",
+    github: "https://github.com/billNtwali/ideafinder",
     accentColor: "#4e6e9a",
   },
   {
@@ -86,7 +86,7 @@ const PROJECTS: Project[] = [
       "Local-first: private, fast, no external dependencies",
     ],
     tech: ["JavaScript", "Chrome Extensions API", "CSS", "Local Storage"],
-    github: "https://github.com/billntwali/link-saver",
+    github: "https://github.com/billNtwali/link-saver",
     accentColor: "#3d6649",
   },
   {
@@ -108,7 +108,7 @@ const PROJECTS: Project[] = [
       "Reproducible research workflows via Jupyter notebooks",
     ],
     tech: ["Python", "Pandas", "NumPy", "Matplotlib", "R", "Jupyter"],
-    github: "https://github.com/billntwali/biodata-explorer",
+    github: "https://github.com/billNtwali/biodata-explorer",
     accentColor: "#6b5ea8",
   },
 ];
@@ -262,7 +262,7 @@ export default function Projects() {
               </h2>
             </div>
             <a
-              href="https://github.com/billntwali"
+              href="https://github.com/billNtwali"
               target="_blank"
               rel="noopener noreferrer"
               className="link-arrow"

@@ -71,7 +71,7 @@ export default function Navbar() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Bill Gate ntwali
+                Bill Gate Ntwali
               </span>
             </a>
 
