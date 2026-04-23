@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STATS = [
-  { value: "Columbia", label: "University", sub: "Class of 2027" },
+  { value: "Columbia", label: "University", sub: "Class of 2028" },
   { value: "Comp Bio", label: "Core Focus", sub: "Biology × Computing" },
   { value: "4+", label: "Projects Shipped", sub: "Real-world applications" },
   { value: "Open", label: "To Opportunities", sub: "Internships & research" },
