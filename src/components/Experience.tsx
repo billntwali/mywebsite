@@ -9,74 +9,234 @@ interface Experience {
   org: string;
   period: string;
   type: string;
+  location: string;
   description: string;
   highlights: string[];
+  website?: string;
 }
 
 const EXPERIENCES: Experience[] = [
   {
-    role: "Resident Adviser",
-    org: "Columbia University Housing",
-    period: "Aug 2024 – Present",
-    type: "Leadership",
+    role: "Software Engineer Intern",
+    org: "The Rockefeller University",
+    period: "May 2026 - Present · 1 mo",
+    type: "Internship",
+    location: "New York, United States",
     description:
-      "Live-in community leader for a floor of Columbia undergraduates. On-call crisis support, student wellness programming, and close collaboration with the Dean of Students office.",
+      "Software Engineer Intern in the Rockefeller Bioinformatics Group, contributing to machine learning and bioinformatics workflows.",
     highlights: [
-      "On-call crisis support and student wellness coordination",
-      "Designed and facilitated community programming and academic workshops",
-      "Collaborated with Dean of Students office on policy and student affairs",
+      "Built and maintained software workflows for research data analysis",
+      "Collaborated with researchers on ML-assisted bioinformatics tasks",
+      "Supported reproducible analysis and data-quality checks",
     ],
+    website: "rockefeller.edu",
+  },
+  {
+    role: "Resident Advisor (RA)",
+    org: "Columbia University",
+    period: "Feb 2026 - Present · 4 mos",
+    type: "Leadership",
+    location: "New York, New York, United States · On-site",
+    description:
+      "Support a residential community of 50+ students through 1:1 check-ins, community programming, conflict mediation, and referrals to campus resources.",
+    highlights: [
+      "Led floor events in coordination with university housing staff",
+      "Maintained an inclusive and supportive residential environment",
+      "Provided direct support and resource navigation for student wellbeing",
+    ],
+    website: "columbia.edu",
+  },
+  {
+    role: "Fellow",
+    org: "ColorStack",
+    period: "Sep 2025 - Present · 9 mos",
+    type: "Fellowship",
+    location: "United States",
+    description:
+      "Participate in a community of Black and Latinx computer science students focused on career growth, technical development, and peer mentorship.",
+    highlights: [
+      "Engaged in career and technical development programming",
+      "Expanded mentorship and peer learning network in tech",
+      "Built community through workshops and professional opportunities",
+    ],
+    website: "colorstack.org",
+  },
+  {
+    role: "AI/Product Strategy- Wells Fargo x GCA Early Talent Competition",
+    org: "Wells Fargo",
+    period: "Apr 2026 · 1 mo",
+    type: "Competition",
+    location: "New York, New York, United States",
+    description:
+      "Designed an AI banking concept focused on fraud resolution, onboarding, and small-business lending through transparent customer-bank commitments.",
+    highlights: [
+      "Proposed Promise Ledger, Case Space, and Relationship Copilot components",
+      "Focused on retrieval-grounded compliance guidance and case summarization",
+      "Built explainability into customer-facing lending support flows",
+    ],
+    website: "wellsfargo.com",
+  },
+  {
+    role: "Software Engineering-Tech Lab",
+    org: "Bloomberg",
+    period: "Apr 2026 · 1 mo",
+    type: "Engineering",
+    location: "New York City Metropolitan Area · On-site",
+    description:
+      "Implemented Python producer and consumer classes for a RabbitMQ messaging system, routing simulated securities updates by ticker and industry sector.",
+    highlights: [
+      "Tested topic-exchange routing behavior in RabbitMQ",
+      "Built and validated workflows in a Dockerized environment",
+      "Applied event-driven design and distributed systems fundamentals",
+    ],
+    website: "bloomberg.com",
+  },
+  {
+    role: "Software Engineering - Cubist Systematic",
+    org: "Point72",
+    period: "Apr 2026 · 1 mo",
+    type: "Hackathon",
+    location: "New York City Metropolitan Area · On-site",
+    description:
+      "Built an AI chess platform in a 5-person team that generated custom opponents from user prompts with distinct play styles and move narration.",
+    highlights: [
+      "Integrated two Claude models across three gameplay touchpoints",
+      "Helped build a five-stage validation pipeline for generated code",
+      "Improved prompt pass rate from 40% to 100% after six iterations",
+    ],
+    website: "point72.com",
+  },
+  {
+    role: "BCG Launch",
+    org: "Boston Consulting Group (BCG)",
+    period: "Mar 2026 - Apr 2026 · 2 mos",
+    type: "Program",
+    location: "United States",
+    description:
+      "Professional development program focused on consulting, business problem-solving, and career readiness through workshops, networking, and case-based learning.",
+    highlights: [
+      "Strengthened structured problem-solving and communication skills",
+      "Practiced case-based analysis in collaborative settings",
+      "Expanded understanding of consulting workflows and expectations",
+    ],
+    website: "bcg.com",
+  },
+  {
+    role: "Launch Your Career in Tech, Data, AI & Design Series",
+    org: "JPMorganChase",
+    period: "Mar 2026 - Apr 2026 · 2 mos",
+    type: "Program",
+    location: "United States",
+    description:
+      "Participated in a career readiness series focused on technology, data, AI, and design pathways in financial services.",
+    highlights: [
+      "Learned from practitioner sessions across technical career tracks",
+      "Built practical insight into product and engineering roles in finance",
+      "Engaged with peers and mentors through structured programming",
+    ],
+    website: "jpmorganchase.com",
+  },
+  {
+    role: "Software Engineering - Code To Give",
+    org: "Morgan Stanley",
+    period: "Mar 2026 · 1 mo",
+    type: "Hackathon",
+    location: "New York, New York, United States · Hybrid",
+    description:
+      "Built a full-stack volunteer outreach platform in a 10-person team, supporting event creation, registrations, cancellations, attendee tracking, and check-in workflows.",
+    highlights: [
+      "Contributed backend API and database workflows for platform modules",
+      "Collaborated across roles to ship features on a hackathon timeline",
+      "Supported event operations tooling with production-minded design",
+    ],
+    website: "morganstanley.com",
+  },
+  {
+    role: "Student Academic Support Worker",
+    org: "Columbia University",
+    period: "Sep 2025 - Feb 2026 · 6 mos",
+    type: "Part-time",
+    location: "New York, United States",
+    description:
+      "Tutored 5-6 STEM students weekly through 5+ individual and group sessions, maintaining a 95% student satisfaction rate.",
+    highlights: [
+      "Created 12+ customized study plans with targeted practice",
+      "Helped students improve exam scores by an average of 20%",
+      "Delivered consistent support across individual and group formats",
+    ],
+    website: "columbia.edu",
   },
   {
     role: "Research Assistant",
-    org: "Computational Biology Lab",
-    period: "Jan 2024 – Present",
-    type: "Research",
+    org: "Columbia University Irving Medical Center",
+    period: "Mar 2025 - Aug 2025 · 6 mos",
+    type: "Internship",
+    location: "New York, United States · On-site",
     description:
-      "Contribute to research at the intersection of computational methods and biological systems — data processing pipelines, genomic analysis, and research software tooling.",
+      "Analyzed flow cytometry data from seven mice using R, Python, FlowJo, and GraphPad Prism to investigate ILC2 roles in steady-state bone marrow hematopoiesis.",
     highlights: [
-      "Built data cleaning and analysis pipelines for genomic datasets",
-      "Contributed to literature reviews and experimental design",
-      "Developed reproducible research workflows using Python and R",
+      "Validated ILC2 depletion with a 10x reduction (0.06% to 0.006%)",
+      "Quantified experimental outcomes and supported interpretation",
+      "Authored a manuscript covering methods, findings, and next experiments",
+    ],
+    website: "cumc.columbia.edu",
+  },
+  {
+    role: "Frontiers of Science Teaching Assistant",
+    org: "Columbia University",
+    period: "Jan 2025 - May 2025 · 5 mos",
+    type: "Teaching",
+    location: "New York, United States · On-site",
+    description:
+      "Supported course delivery, student engagement, and discussion-based learning for the Frontiers of Science curriculum.",
+    highlights: [
+      "Facilitated sections and student support during course cycles",
+      "Helped clarify technical concepts and assignment expectations",
+      "Partnered with course staff to maintain instructional quality",
+    ],
+    website: "columbia.edu",
+  },
+  {
+    role: "John Jay RHLO Representative",
+    org: "Columbia University",
+    period: "Oct 2024 - May 2025 · 8 mos",
+    type: "Leadership",
+    location: "New York, United States · On-site",
+    description:
+      "Represented resident voices in housing leadership processes while supporting student communication, planning, and community priorities.",
+    highlights: [
+      "Coordinated resident feedback with housing leadership",
+      "Supported floor-level initiatives and community organization",
+      "Helped advance student-centered residential improvements",
+    ],
+    website: "columbia.edu",
+  },
+  {
+    role: "Project Manager",
+    org: "Helping Hand Foundation",
+    period: "Nov 2021 - Sep 2024 · 2 yrs 11 mos",
+    type: "Internship",
+    location: "Kigali, Kigali City, Rwanda · On-site",
+    description:
+      "Led project planning and coordination for community-focused initiatives, including stakeholder communication and implementation support.",
+    highlights: [
+      "Managed project timelines and execution checkpoints",
+      "Coordinated teams and partners across initiative phases",
+      "Tracked outcomes and communicated progress to stakeholders",
     ],
   },
   {
-    role: "Software Engineering Intern",
-    org: "Tech Organization",
-    period: "Summer 2024",
-    type: "Engineering",
+    role: "Student Research Assistant",
+    org: "Lycee de Kigali",
+    period: "Sep 2022 - Aug 2024 · 2 yrs",
+    type: "Internship",
+    location: "Kigali City, Rwanda · On-site",
     description:
-      "Full-stack feature development and analytics tooling in a fast-moving engineering team. Worked across frontend and backend, participating in code review, sprint planning, and architectural decisions.",
+      "Supported student research initiatives with data handling, technical analysis, and structured reporting.",
     highlights: [
-      "Built and shipped user-facing features in React and TypeScript",
-      "Improved data pipeline performance with backend optimization",
-      "Participated in sprint reviews, retros, and technical design discussions",
-    ],
-  },
-  {
-    role: "Academic Tutor & Mentor",
-    org: "Columbia Academic Programs",
-    period: "Sep 2023 – Present",
-    type: "Mentorship",
-    description:
-      "One-on-one academic support in STEM subjects, focused on making technical material accessible and building genuine understanding rather than surface recall.",
-    highlights: [
-      "One-on-one tutoring in CS, mathematics, and biology",
-      "Developed supplemental study materials for complex topics",
-      "Helped students navigate academic challenges and build confidence",
-    ],
-  },
-  {
-    role: "Hackathon Participant",
-    org: "Multiple Events",
-    period: "2023 – 2025",
-    type: "Building",
-    description:
-      "Competed in multiple hackathons, shipping functional product prototypes under time pressure. Strong emphasis on real-world relevance, product thinking, and clean execution.",
-    highlights: [
-      "Shipped MVPs across web, data, and healthcare-adjacent domains",
-      "Led cross-functional teams under 24–48 hour build timelines",
-      "Pitched technical products to judges and stakeholder audiences",
+      "Contributed SQL and Python support for research workflows",
+      "Assisted with documentation and presentation of results",
+      "Strengthened foundational quantitative analysis practices",
     ],
   },
 ];
@@ -84,6 +244,13 @@ const EXPERIENCES: Experience[] = [
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const getInitials = (org: string) =>
+    org
+      .split(/[\s&()]+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase() ?? "")
+      .join("");
 
   return (
     <section
@@ -165,16 +332,46 @@ export default function Experience() {
                 >
                   {/* Header row */}
                   <div className="flex items-start justify-between flex-wrap gap-3 mb-4">
-                    <div>
-                      <h3 className="text-text-primary font-medium mb-0.5" style={{ fontSize: "1rem" }}>
-                        {exp.role}
-                      </h3>
-                      <p className="text-accent-gold" style={{ fontSize: "0.875rem", fontWeight: 300 }}>
-                        {exp.org}
-                      </p>
+                    <div className="flex items-start gap-3">
+                      <div
+                        className="shrink-0 flex items-center justify-center"
+                        style={{
+                          width: "2rem",
+                          height: "2rem",
+                          borderRadius: "2px",
+                          background: "#151828",
+                          border: "1px solid #1d2136",
+                        }}
+                      >
+                        {exp.website ? (
+                          // Favicon source provides lightweight company marks without adding local assets.
+                          <img
+                            src={`https://www.google.com/s2/favicons?domain=${exp.website}&sz=128`}
+                            alt={`${exp.org} logo`}
+                            style={{ width: "1.125rem", height: "1.125rem" }}
+                          />
+                        ) : (
+                          <span className="label-mono" style={{ fontSize: "0.6rem" }}>
+                            {getInitials(exp.org)}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="text-text-primary font-medium mb-0.5" style={{ fontSize: "1rem" }}>
+                          {exp.role}
+                        </h3>
+                        <p className="text-accent-gold" style={{ fontSize: "0.875rem", fontWeight: 300 }}>
+                          {exp.org}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="label-mono">{exp.period}</span>
+                      <div className="text-right">
+                        <p className="label-mono">{exp.period}</p>
+                        <p className="label-mono mt-1" style={{ color: "#3f4a5f", fontSize: "0.625rem" }}>
+                          {exp.location}
+                        </p>
+                      </div>
                       <span
                         className="label-mono px-2 py-0.5"
                         style={{ background: "#151828", border: "1px solid #1d2136", borderRadius: "2px" }}
