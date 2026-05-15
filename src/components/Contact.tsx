@@ -20,8 +20,8 @@ const LINKS = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/billNtwali",
-    href: "https://linkedin.com/in/billNtwali",
+    value: "linkedin.com/in/bill-gate-ntwali",
+    href: "https://www.linkedin.com/in/bill-gate-ntwali/",
     external: true,
   },
   {
