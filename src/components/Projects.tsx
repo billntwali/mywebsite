@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
       "Generated PDF flyers automatically with QR codes and location details",
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
-    github: "https://github.com/billNtwali/lemontree",
+    github: "https://github.com/Labcoxyzl/MS-CodeToGive-TEAM3",
     featured: true,
     accentColor: "#c4883e",
   },
@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
   {
     id: 3,
     num: "03",
-    title: "RepoLens",
+    title: "MenyaCode",
     tagline: "GitHub Repository Analyzer",
     category: "Developer Tool · AI",
     description:
@@ -87,6 +87,8 @@ const PROJECTS: Project[] = [
       "Guardrails for size limits, unsupported formats, and API limits",
     ],
     tech: ["Spring Boot", "Java", "Next.js", "TypeScript", "OpenAI API"],
+    github: "https://github.com/billntwali/menyacode",
+    featured: true,
     accentColor: "#3d6649",
   },
   {
