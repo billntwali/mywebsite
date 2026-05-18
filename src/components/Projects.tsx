@@ -134,6 +134,7 @@ const PROJECTS: Project[] = [
       "Improved prompt success rate from 40% to 100%",
     ],
     tech: ["TypeScript", "AI Orchestration", "Claude Haiku", "Claude Sonnet", "Prompt Engineering"],
+    github: "https://github.com/billntwali/Chess_cubist",
     accentColor: "#9a4e4e",
   },
   {
