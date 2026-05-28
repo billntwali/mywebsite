@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, Globe, X } from "lucide-react";
 
 interface Project {
   id: number;
@@ -42,6 +42,7 @@ const PROJECTS: Project[] = [
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
     github: "https://github.com/Labcoxyzl/MS-CodeToGive-TEAM3",
+    demo: "https://ms-code-to-give-deployment-tawny.vercel.app/",
     featured: true,
     accentColor: "#c4883e",
   },
@@ -88,6 +89,7 @@ const PROJECTS: Project[] = [
     ],
     tech: ["Spring Boot", "Java", "Next.js", "TypeScript", "OpenAI API"],
     github: "https://github.com/billntwali/menyacode",
+    demo: "https://menyacode-production.up.railway.app/",
     featured: true,
     accentColor: "#3d6649",
   },
@@ -112,6 +114,7 @@ const PROJECTS: Project[] = [
     ],
     tech: ["TypeScript", "React", "Chrome Manifest V3", "BM25", "Fuse.js"],
     github: "https://github.com/billNtwali/ideafinder",
+    demo: "https://chromewebstore.google.com/detail/ideafinder/emngnhajiadljeiigbmfilidjngenddj",
     accentColor: "#6b5e3a",
   },
   {
@@ -269,7 +272,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
             )}
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                Live Demo <ArrowUpRight size={13} />
+                <Globe size={13} /> Live Site <ArrowUpRight size={13} />
               </a>
             )}
           </div>
@@ -391,6 +394,18 @@ export default function Projects() {
 
                       {/* Right: action */}
                       <div className="flex items-center gap-5 shrink-0 self-start pt-1">
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="link-arrow inline-flex items-center gap-1.5"
+                            title="Visit deployed site"
+                          >
+                            <Globe size={13} /> Live
+                          </a>
+                        )}
                         {project.github && (
                           <a
                             href={project.github}
