@@ -171,8 +171,9 @@ export default function Hero() {
           className="text-text-secondary text-base leading-relaxed max-w-lg mx-auto mb-12"
           style={{ fontWeight: 300 }}
         >
-          Building at the intersection of software engineering, computational biology,
-          and data — with a focus on tools that solve real problems and create genuine impact.
+          Computer Science and Biology student at Columbia University building software
+          that solves real problems, not just creates new bugs. I'm interested in software
+          engineering, AI, data, fintech, and tools that are useful, thoughtful, and scalable.
         </motion.p>
 
         {/* CTA buttons */}
@@ -195,7 +196,7 @@ export default function Hero() {
             About Me
           </button>
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1NhMyC9TWZHXDWVhmDHhDQDL4Zyboiv9q/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost"
