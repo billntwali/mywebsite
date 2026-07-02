@@ -10,29 +10,41 @@ type Tab = typeof TABS[number];
 const TAB_CONTENT: Record<Tab, { body: string[] }> = {
   Background: {
     body: [
-      "I'm a Columbia University undergraduate studying at the intersection of biology and computing — a space where algorithms illuminate biological systems and data reshapes how we understand living things. My path has been shaped by a genuine curiosity: not just what the tools do, but why they work, and how they can become more useful.",
-      "That curiosity extends beyond coursework. I've built full-stack applications, dug into data pipelines, and shipped tools that real people use. I learn by building, and I build toward things that actually matter.",
+      "I'm a Columbia University undergraduate studying Computational Biology with a strong focus on computer science, software engineering, and data-driven systems. My work sits at the intersection of building useful products, designing reliable backends, and using code to make complex information easier to work with.",
+      "Outside the classroom, I've built full-stack applications, mobile tools, Chrome extensions, REST APIs, database schemas, and AI-powered developer tools. I learn best by building, debugging, and shipping projects that real people can use.",
     ],
   },
   Interests: {
     body: [
-      "I'm especially drawn to problems where software meets the real world in high-stakes ways — bioinformatics pipelines, healthcare data tools, nonprofit infrastructure, and developer tooling that helps other builders move faster.",
-      "I'm also interested in the craft of software itself: clean architecture, thoughtful product design, and the kind of engineering that makes systems feel inevitable once you encounter them.",
+      "I'm especially interested in software that solves practical problems: developer tools, fintech products, research platforms, data pipelines, and applications that make workflows faster, clearer, or more reliable.",
+      "I care about the craft of software engineering itself: clean architecture, readable code, thoughtful product design, strong data modeling, and systems that feel simple on the surface because the engineering underneath is solid.",
     ],
   },
   "Beyond Tech": {
     body: [
-      "Outside of code and research, I serve as a Resident Adviser at Columbia — a role that has taught me more about leadership, empathy, and navigating hard conversations than any class ever could. Supporting a community of students is its own kind of systems work.",
-      "I care deeply about mentorship, academic access, and building environments where people feel supported to take risks, ask hard questions, and grow into their potential.",
+      "Outside of software, I serve as a Resident Adviser at Columbia, supporting a community of 50+ students through mentorship, conflict mediation, programming, and everyday problem-solving.",
+      "That work has shaped how I think about engineering too. The best systems are not just technically correct; they are built with people in mind. I care about mentorship, access, and creating environments where people feel supported enough to grow.",
     ],
   },
 };
 
 const IDENTITY = [
-  { label: "Builder", desc: "I think in systems and ship real products. If it solves a real problem, I want to build it." },
-  { label: "Research-Minded", desc: "Computational biology sits at an extraordinary intersection of data and life. I'm drawn to scientific problems where code becomes discovery." },
-  { label: "Data-Focused", desc: "Good decisions come from good data. I love turning raw information into insight and building the pipelines that make it possible." },
-  { label: "Community-Driven", desc: "As an RA and mentor, I know that technical work doesn't happen in isolation. People and trust matter as much as code." },
+  {
+    label: "Software Engineer",
+    desc: "I enjoy building practical applications, APIs, and tools that solve real problems and are reliable enough for people to actually use.",
+  },
+  {
+    label: "Systems Thinker",
+    desc: "I like understanding how pieces fit together, from frontend interfaces to backend services, databases, data pipelines, and deployment decisions.",
+  },
+  {
+    label: "Data-Focused",
+    desc: "I’m drawn to problems where good software makes messy information easier to validate, analyze, search, and turn into useful decisions.",
+  },
+  {
+    label: "Community-Driven",
+    desc: "As an RA and mentor, I know technical work does not happen in isolation. Communication, trust, and empathy matter as much as code.",
+  },
 ];
 
 export default function About() {
@@ -60,7 +72,8 @@ export default function About() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to bottom, #09091a 0%, rgba(9,9,26,0.88) 50%, #09091a 100%)",
+            background:
+              "linear-gradient(to bottom, #09091a 0%, rgba(9,9,26,0.88) 50%, #09091a 100%)",
           }}
         />
       </div>
@@ -80,12 +93,13 @@ export default function About() {
           >
             The person behind
             <br />
-            <em style={{ fontStyle: "italic", color: "#c4883e" }}>the builds</em>
+            <em style={{ fontStyle: "italic", color: "#c4883e" }}>
+              the builds
+            </em>
           </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-
           {/* Left — identity cards */}
           <div className="space-y-5">
             {IDENTITY.map((item, i) => (
@@ -106,8 +120,13 @@ export default function About() {
                   }}
                 />
                 <div>
-                  <p className="text-text-primary text-sm font-medium mb-1.5">{item.label}</p>
-                  <p className="text-text-secondary leading-relaxed" style={{ fontSize: "0.875rem", fontWeight: 300 }}>
+                  <p className="text-text-primary text-sm font-medium mb-1.5">
+                    {item.label}
+                  </p>
+                  <p
+                    className="text-text-secondary leading-relaxed"
+                    style={{ fontSize: "0.875rem", fontWeight: 300 }}
+                  >
                     {item.desc}
                   </p>
                 </div>
@@ -123,18 +142,26 @@ export default function About() {
             >
               <div
                 className="p-6"
-                style={{ background: "#0e1020", border: "1px solid #1d2136", borderRadius: "2px" }}
+                style={{
+                  background: "#0e1020",
+                  border: "1px solid #1d2136",
+                  borderRadius: "2px",
+                }}
               >
                 <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                   {[
                     ["Location", "New York City"],
                     ["Background", "Rwanda → New York"],
-                    ["Focus", "CS + Computational Biology"],
-                    ["Available", "Research & internships"],
+                    ["Focus", "Software Engineering"],
+                    ["Building", "Full-stack, mobile & data tools"],
                   ].map(([k, v]) => (
                     <div key={k}>
-                      <p className="label-mono mb-0.5" style={{ fontSize: "0.6rem" }}>{k}</p>
-                      <p className="text-text-primary" style={{ fontSize: "0.8125rem" }}>{v}</p>
+                      <p className="label-mono mb-0.5" style={{ fontSize: "0.6rem" }}>
+                        {k}
+                      </p>
+                      <p className="text-text-primary" style={{ fontSize: "0.8125rem" }}>
+                        {v}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -149,10 +176,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Tab bar */}
-            <div
-              className="flex gap-0 mb-8 border-b"
-              style={{ borderColor: "#1d2136" }}
-            >
+            <div className="flex gap-0 mb-8 border-b" style={{ borderColor: "#1d2136" }}>
               {TABS.map((t) => (
                 <button
                   key={t}
@@ -163,7 +187,8 @@ export default function About() {
                     fontWeight: 400,
                     letterSpacing: "0.02em",
                     color: tab === t ? "#ece5d8" : "#404d62",
-                    borderBottom: tab === t ? "1px solid #c4883e" : "1px solid transparent",
+                    borderBottom:
+                      tab === t ? "1px solid #c4883e" : "1px solid transparent",
                     marginBottom: "-1px",
                     background: "none",
                     cursor: "pointer",
@@ -201,7 +226,9 @@ export default function About() {
               className="mt-12"
             >
               <button
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="link-arrow"
               >
                 Let's connect
