@@ -5,9 +5,9 @@ import { motion, useInView } from "framer-motion";
 
 const STATS = [
   { value: "Columbia", label: "University", sub: "Class of 2028" },
-  { value: "Comp Bio", label: "Core Focus", sub: "Biology × Computing" },
-  { value: "4+", label: "Projects Shipped", sub: "Real-world applications" },
-  { value: "Open", label: "To Opportunities", sub: "Internships & research" },
+  { value: "Software", label: "Core Focus", sub: "Engineering & System Design & Backend" },
+  { value: "8+", label: "Projects Built", sub: "Full-stack, mobile & data tools" },
+  { value: "Open", label: "To Opportunities", sub: "Software Engineering internships" },
 ];
 
 export default function Snapshot() {
