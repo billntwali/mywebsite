@@ -27,7 +27,7 @@ const LINKS = [
   {
     label: "Resume",
     value: "Download PDF",
-    href: "/resume.pdf",
+    href: "https://drive.google.com/file/d/1NhMyC9TWZHXDWVhmDHhDQDL4Zyboiv9q/view?usp=sharing",
     external: true,
   },
 ];
