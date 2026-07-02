@@ -6,35 +6,35 @@ import { motion, useInView } from "framer-motion";
 const INTERESTS = [
   {
     title: "Software Engineering",
-    desc: "Clean systems, thoughtful architecture, and the craft of building software that lasts and scales with purpose.",
+    desc: "Clean systems, thoughtful architecture, and the craft of building software that is reliable, useful, and built to scale.",
   },
   {
-    title: "Computational Biology",
-    desc: "Algorithms that reveal patterns in living systems — where code becomes a lens for understanding biology.",
+    title: "Backend Systems",
+    desc: "APIs, databases, authentication, data models, and infrastructure that make applications fast, organized, and dependable.",
   },
   {
-    title: "Bioinformatics",
-    desc: "Building pipelines and tools that help researchers navigate genomic, proteomic, and expression datasets.",
+    title: "Full-Stack Products",
+    desc: "Building user-facing tools from idea to implementation, connecting intuitive interfaces with strong engineering underneath.",
   },
   {
-    title: "Data-Driven Products",
-    desc: "Making data meaningful through visualization, analysis, and systems that help people make better decisions.",
+    title: "Data-Driven Tools",
+    desc: "Making messy information easier to validate, search, analyze, and turn into decisions people can actually use.",
   },
   {
     title: "Developer Tools",
-    desc: "Extensions, CLIs, and platforms that make other builders faster, more capable, and less frustrated.",
+    desc: "Extensions, repository analyzers, automation tools, and platforms that help other builders move faster with less friction.",
   },
   {
-    title: "Healthcare & Nonprofit Tech",
-    desc: "Technology at its most meaningful — software that serves people in high-stakes, high-need contexts.",
+    title: "Fintech & Markets",
+    desc: "Software that supports faster decisions, clearer comparisons, reliable data flows, and real-world financial products.",
   },
   {
-    title: "Applied Research Systems",
-    desc: "Software infrastructure that makes research faster, more reproducible, and easier to share and build on.",
+    title: "AI-Powered Applications",
+    desc: "Using modern AI tools to build practical features, improve workflows, and make complex systems easier to understand.",
   },
   {
-    title: "AI in Science",
-    desc: "How ML and intelligent systems can be embedded into useful, real-world scientific products — especially in biology.",
+    title: "Research Software",
+    desc: "Building tools for scientific and clinical teams where accuracy, validation, and usability matter in high-stakes workflows.",
   },
 ];
 
