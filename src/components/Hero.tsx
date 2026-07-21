@@ -196,7 +196,7 @@ export default function Hero() {
             About Me
           </button>
           <a
-            href="https://drive.google.com/file/d/1NhMyC9TWZHXDWVhmDHhDQDL4Zyboiv9q/view?usp=sharing"
+            href="https://drive.google.com/file/d/1iZOJ03VMnImzHyX0ZlexTig9RbPHtQv-/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost"
