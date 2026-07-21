@@ -182,6 +182,7 @@ const PROJECTS: Project[] = [
       "Interactive pricing simulations and ROI dashboards to split AI-generated value",
     ],
     tech: ["React", "TypeScript", "Vite", "Recharts"],
+    demo: "https://ramp-dividend-production.up.railway.app/",
     accentColor: "#6b4e9a",
   },
 ];
