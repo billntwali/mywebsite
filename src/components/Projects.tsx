@@ -169,14 +169,14 @@ const PROJECTS: Project[] = [
     tagline: "Ramp Hackathon",
     category: "Hackathon · Fintech",
     description:
-      "An AI pricing and revenue-intelligence platform built in a 2-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
+      "An AI pricing and revenue-intelligence platform built in a 4-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
     longDescription: [
-      "Dividend was built in a 2-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
+      "Dividend was built in a 4-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
       "I engineered a centralized calculation system that combines historical labor baselines, actual hours, and 47 Ramp-style AI transactions to calculate efficiency savings and generate transparent client invoices.",
       "I also developed interactive pricing simulations, ROI dashboards, and invoice-outcome tracking to split AI-generated value between firms and clients and support data-driven pricing decisions.",
     ],
     highlights: [
-      "Built in a 2-person, 4-hour hackathon sprint",
+      "Built in a 4-person, 4-hour hackathon sprint",
       "Centralized calculation engine combining labor baselines, actual hours, and 47 Ramp-style AI transactions",
       "Generated transparent, efficiency-based client invoices",
       "Interactive pricing simulations and ROI dashboards to split AI-generated value",
