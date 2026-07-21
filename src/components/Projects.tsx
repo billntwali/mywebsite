@@ -162,6 +162,28 @@ const PROJECTS: Project[] = [
     tech: ["AI Product Design", "Fintech Operations", "Case Management", "Policy Grounding"],
     accentColor: "#4e4e9a",
   },
+  {
+    id: 7,
+    num: "07",
+    title: "Dividend",
+    tagline: "Ramp Hackathon",
+    category: "Hackathon · Fintech",
+    description:
+      "An AI pricing and revenue-intelligence platform built in a 2-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
+    longDescription: [
+      "Dividend was built in a 2-person, 4-hour hackathon to help professional-service firms quantify the financial value created when AI reduces billable work.",
+      "I engineered a centralized calculation system that combines historical labor baselines, actual hours, and 47 Ramp-style AI transactions to calculate efficiency savings and generate transparent client invoices.",
+      "I also developed interactive pricing simulations, ROI dashboards, and invoice-outcome tracking to split AI-generated value between firms and clients and support data-driven pricing decisions.",
+    ],
+    highlights: [
+      "Built in a 2-person, 4-hour hackathon sprint",
+      "Centralized calculation engine combining labor baselines, actual hours, and 47 Ramp-style AI transactions",
+      "Generated transparent, efficiency-based client invoices",
+      "Interactive pricing simulations and ROI dashboards to split AI-generated value",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Recharts"],
+    accentColor: "#6b4e9a",
+  },
 ];
 
 function Modal({ project, onClose }: { project: Project; onClose: () => void }) {
