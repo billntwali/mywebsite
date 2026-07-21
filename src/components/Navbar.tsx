@@ -91,7 +91,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="https://drive.google.com/file/d/1NhMyC9TWZHXDWVhmDHhDQDL4Zyboiv9q/view?usp=sharing"
+                href="https://drive.google.com/file/d/1iZOJ03VMnImzHyX0ZlexTig9RbPHtQv-/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline"
@@ -141,7 +141,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="https://drive.google.com/file/d/1NhMyC9TWZHXDWVhmDHhDQDL4Zyboiv9q/view?usp=sharing"
+                href="https://drive.google.com/file/d/1iZOJ03VMnImzHyX0ZlexTig9RbPHtQv-/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline mt-2 justify-center"
